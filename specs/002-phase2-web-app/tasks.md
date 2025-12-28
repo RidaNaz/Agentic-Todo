@@ -30,17 +30,17 @@
 - [x] T003 Initialize Python project with UV in backend/ directory
 - [x] T004 [P] Create backend/requirements.txt with FastAPI, SQLModel, Alembic, python-jose, passlib, asyncpg
 - [x] T005 [P] Create backend/requirements-dev.txt with pytest, pytest-cov, pytest-asyncio, httpx
-- [ ] T006 [P] Initialize Next.js project in frontend/ with TypeScript and Tailwind CSS
-- [ ] T007 [P] Add Better Auth and required dependencies to frontend/package.json
-- [ ] T008 Create root .env.example with all required environment variables
-- [ ] T009 Create backend/.env.example with DATABASE_URL, BETTER_AUTH_SECRET, ALLOWED_ORIGINS
-- [ ] T010 Create frontend/.env.local.example with BETTER_AUTH_SECRET, DATABASE_URL, NEXT_PUBLIC_API_URL
-- [ ] T011 [P] Create backend/Dockerfile for FastAPI container
-- [ ] T012 [P] Create frontend/Dockerfile for Next.js container
-- [ ] T013 Create docker-compose.yml for development environment (frontend + backend services)
-- [ ] T014 [P] Create docker-compose.prod.yml for production environment
-- [ ] T015 [P] Configure ESLint and Prettier for frontend in frontend/.eslintrc.json
-- [ ] T016 [P] Configure Python linting (ruff/black) for backend in backend/pyproject.toml
+- [x] T006 [P] Initialize Next.js project in frontend/ with TypeScript and Tailwind CSS
+- [x] T007 [P] Add Better Auth and required dependencies to frontend/package.json
+- [x] T008 Create root .env.example with all required environment variables
+- [x] T009 Create backend/.env.example with DATABASE_URL, BETTER_AUTH_SECRET, ALLOWED_ORIGINS
+- [x] T010 Create frontend/.env.local.example with BETTER_AUTH_SECRET, DATABASE_URL, NEXT_PUBLIC_API_URL
+- [x] T011 [P] Create backend/Dockerfile for FastAPI container
+- [x] T012 [P] Create frontend/Dockerfile for Next.js container
+- [x] T013 Create docker-compose.yml for development environment (frontend + backend services)
+- [x] T014 [P] Create docker-compose.prod.yml for production environment
+- [x] T015 [P] Configure ESLint and Prettier for frontend in frontend/.eslintrc.json
+- [x] T016 [P] Configure Python linting (ruff/black) for backend in backend/pyproject.toml
 
 **Checkpoint**: Project structure and configuration files ready
 
@@ -52,22 +52,22 @@
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T017 Setup SQLModel database connection in backend/app/database.py with async PostgreSQL
-- [ ] T018 Create backend/app/config.py for environment variable management using pydantic BaseSettings
-- [ ] T019 Initialize Alembic in backend/alembic/ for database migrations
-- [ ] T020 Configure Alembic env.py to use SQLModel metadata and async engine
-- [ ] T021 Create FastAPI app instance in backend/app/main.py with CORS middleware
-- [ ] T022 Configure CORS middleware in backend/app/middleware/cors.py using ALLOWED_ORIGINS
-- [ ] T023 Create base response schemas in backend/app/schemas/__init__.py (ErrorResponse, SuccessResponse)
-- [ ] T024 Create backend/app/dependencies/__init__.py for dependency injection utilities
-- [ ] T025 Setup pytest configuration in backend/tests/conftest.py with async fixtures
-- [ ] T026 Create test database session fixture in backend/tests/conftest.py
-- [ ] T027 Setup Next.js root layout in frontend/app/layout.tsx with Tailwind CSS
-- [ ] T028 Create frontend/lib/utils.ts with common utility functions (cn, formatDate, etc.)
-- [ ] T029 [P] Create base UI components in frontend/components/ui/ (button.tsx, input.tsx, card.tsx, dialog.tsx)
-- [ ] T030 Create frontend/types/__init__.ts for shared TypeScript types
-- [ ] T031 Create error boundary component in frontend/app/error.tsx
-- [ ] T032 Create loading component in frontend/app/loading.tsx
+- [x] T017 Setup SQLModel database connection in backend/app/database.py with async PostgreSQL
+- [x] T018 Create backend/app/config.py for environment variable management using pydantic BaseSettings
+- [x] T019 Initialize Alembic in backend/alembic/ for database migrations
+- [x] T020 Configure Alembic env.py to use SQLModel metadata and async engine
+- [x] T021 Create FastAPI app instance in backend/app/main.py with CORS middleware
+- [x] T022 Configure CORS middleware in backend/app/middleware/cors.py using ALLOWED_ORIGINS
+- [x] T023 Create base response schemas in backend/app/schemas/__init__.py (ErrorResponse, SuccessResponse)
+- [x] T024 Create backend/app/dependencies/__init__.py for dependency injection utilities
+- [x] T025 Setup pytest configuration in backend/tests/conftest.py with async fixtures
+- [x] T026 Create test database session fixture in backend/tests/conftest.py
+- [x] T027 Setup Next.js root layout in frontend/app/layout.tsx with Tailwind CSS
+- [x] T028 Create frontend/lib/utils.ts with common utility functions (cn, formatDate, etc.)
+- [x] T029 [P] Create base UI components in frontend/components/ui/ (button.tsx, input.tsx, card.tsx, dialog.tsx)
+- [x] T030 Create frontend/types/__init__.ts for shared TypeScript types
+- [x] T031 Create error boundary component in frontend/app/error.tsx
+- [x] T032 Create loading component in frontend/app/loading.tsx
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 
