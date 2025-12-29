@@ -37,7 +37,7 @@ export function AuthGuard({
         // Verify token with backend
         const session = await authClient.getSession()
 
-        if (!session || !session.user) {
+        if (!session || !session.id) {
           setIsAuthenticated(false)
           localStorage.removeItem("auth_token")
           router.push(redirectTo)
@@ -98,9 +98,9 @@ export function useAuth() {
         }
 
         const session = await authClient.getSession()
-        if (session && session.user) {
+        if (session && session.id) {
           setIsAuthenticated(true)
-          setUser(session.user)
+          setUser(session)
         } else {
           setIsAuthenticated(false)
           localStorage.removeItem("auth_token")

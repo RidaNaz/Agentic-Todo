@@ -59,6 +59,26 @@ export const auth = betterAuth({
 })
 
 /**
+ * Token storage helper (client-side only)
+ */
+const TOKEN_KEY = 'auth_token'
+
+function getToken(): string | null {
+  if (typeof window === 'undefined') return null
+  return localStorage.getItem(TOKEN_KEY)
+}
+
+function setToken(token: string): void {
+  if (typeof window === 'undefined') return
+  localStorage.setItem(TOKEN_KEY, token)
+}
+
+function removeToken(): void {
+  if (typeof window === 'undefined') return
+  localStorage.removeItem(TOKEN_KEY)
+}
+
+/**
  * Custom auth client for API calls to backend
  */
 export const authClient = {
@@ -79,7 +99,12 @@ export const authClient = {
       throw new Error(error.detail || "Signup failed")
     }
 
-    return response.json()
+    const data = await response.json()
+    // Store the JWT token
+    if (data.access_token) {
+      setToken(data.access_token)
+    }
+    return data
   },
 
   /**
@@ -99,17 +124,29 @@ export const authClient = {
       throw new Error(error.detail || "Signin failed")
     }
 
-    return response.json()
+    const data = await response.json()
+    // Store the JWT token
+    if (data.access_token) {
+      setToken(data.access_token)
+    }
+    return data
   },
 
   /**
    * Sign out the current user
    */
   async signout() {
+    const token = getToken()
     const response = await fetch(`${BACKEND_URL}/api/auth/signout`, {
       method: "POST",
+      headers: token ? {
+        "Authorization": `Bearer ${token}`,
+      } : {},
       credentials: "include",
     })
+
+    // Remove token regardless of response
+    removeToken()
 
     if (!response.ok) {
       throw new Error("Signout failed")
@@ -122,17 +159,40 @@ export const authClient = {
    * Get the current user session
    */
   async getSession() {
+    const token = getToken()
+
+    if (!token) {
+      return null
+    }
+
     const response = await fetch(`${BACKEND_URL}/api/auth/session`, {
       method: "GET",
+      headers: {
+        "Authorization": `Bearer ${token}`,
+      },
       credentials: "include",
     })
 
     if (!response.ok) {
+      // Token might be expired or invalid
+      if (response.status === 401 || response.status === 403) {
+        removeToken()
+      }
       return null
     }
 
     return response.json()
   },
+
+  /**
+   * Get the stored token
+   */
+  getToken,
+
+  /**
+   * Remove the stored token
+   */
+  removeToken,
 }
 
 export type AuthClient = typeof authClient

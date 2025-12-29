@@ -55,7 +55,7 @@ export function TaskItem({ task, onUpdate, onDelete }: TaskItemProps) {
   }
 
   const handleEdit = () => {
-    router.push(`/app/tasks/${task.id}/edit`)
+    router.push(`/tasks/${task.id}/edit`)
   }
 
   return (

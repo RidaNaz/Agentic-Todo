@@ -39,11 +39,11 @@ export default function EditTaskPage() {
   }
 
   const handleSuccess = () => {
-    router.push("/app/tasks")
+    router.push("/tasks")
   }
 
   const handleCancel = () => {
-    router.push("/app/tasks")
+    router.push("/tasks")
   }
 
   if (isLoading) {
