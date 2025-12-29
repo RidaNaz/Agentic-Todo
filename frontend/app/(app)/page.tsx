@@ -21,7 +21,7 @@ export default function AppPage() {
             Manage your tasks efficiently
           </p>
         </div>
-        <Link href="/app/tasks/new">
+        <Link href="/tasks/new">
           <Button size="lg">
             <svg
               className="mr-2 h-5 w-5"

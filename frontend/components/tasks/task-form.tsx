@@ -88,7 +88,7 @@ export function TaskForm({ task, onSuccess, onCancel }: TaskFormProps) {
       if (onSuccess) {
         onSuccess(result)
       } else {
-        router.push("/app")
+        router.push("/tasks")
       }
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to save task")
@@ -101,7 +101,7 @@ export function TaskForm({ task, onSuccess, onCancel }: TaskFormProps) {
     if (onCancel) {
       onCancel()
     } else {
-      router.push("/app")
+      router.push("/tasks")
     }
   }
 

@@ -16,7 +16,7 @@ interface SigninFormProps {
   redirectTo?: string
 }
 
-export function SigninForm({ onSuccess, redirectTo = "/app" }: SigninFormProps) {
+export function SigninForm({ onSuccess, redirectTo = "/tasks" }: SigninFormProps) {
   const router = useRouter()
   const [formData, setFormData] = useState<UserLogin>({
     email: "",

@@ -33,22 +33,10 @@ function AppLayoutContent({ children }: AppLayoutProps) {
 
             <nav className="flex items-center space-x-4">
               <a
-                href="/app"
-                className="text-sm font-medium text-gray-700 hover:text-gray-900"
-              >
-                Dashboard
-              </a>
-              <a
-                href="/app/tasks"
+                href="/tasks"
                 className="text-sm font-medium text-gray-700 hover:text-gray-900"
               >
                 All Tasks
-              </a>
-              <a
-                href="/app/profile"
-                className="text-sm font-medium text-gray-700 hover:text-gray-900"
-              >
-                Profile
               </a>
 
               {user && (

@@ -21,8 +21,8 @@ sys.path.append(str(Path(__file__).parents[1]))
 from app.config import settings
 
 # Import all models here to ensure they're registered with SQLModel
-# from app.models.user import User
-# from app.models.task import Task
+from app.models.user import User
+from app.models.task import Task
 
 # Alembic Config object
 config = context.config
@@ -69,6 +69,9 @@ async def run_async_migrations() -> None:
     connectable = create_async_engine(
         DATABASE_URL,
         poolclass=pool.NullPool,
+        connect_args={
+            "ssl": "require",  # SSL configuration for asyncpg with Neon
+        },
     )
 
     async with connectable.connect() as connection:

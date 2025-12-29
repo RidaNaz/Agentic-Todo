@@ -16,7 +16,7 @@ interface SignupFormProps {
   redirectTo?: string
 }
 
-export function SignupForm({ onSuccess, redirectTo = "/app" }: SignupFormProps) {
+export function SignupForm({ onSuccess, redirectTo = "/tasks" }: SignupFormProps) {
   const router = useRouter()
   const [formData, setFormData] = useState<UserCreate>({
     email: "",

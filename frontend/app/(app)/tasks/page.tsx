@@ -71,7 +71,7 @@ export default function TasksPage() {
             View and manage all your tasks
           </p>
         </div>
-        <Link href="/app/tasks/new">
+        <Link href="/tasks/new">
           <Button size="lg">
             <svg
               className="mr-2 h-5 w-5"

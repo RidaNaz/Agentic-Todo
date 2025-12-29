@@ -3,9 +3,9 @@ Database connection setup using SQLModel with async PostgreSQL.
 Provides session management and connection pooling.
 """
 
-from sqlmodel import SQLModel, create_engine
-from sqlmodel.ext.asyncio.session import AsyncSession, AsyncEngine
-from sqlalchemy.ext.asyncio import create_async_engine
+from sqlmodel import SQLModel
+from sqlmodel.ext.asyncio.session import AsyncSession
+from sqlalchemy.ext.asyncio import create_async_engine, AsyncEngine
 from sqlalchemy.orm import sessionmaker
 from typing import AsyncGenerator
 
@@ -20,6 +20,9 @@ async_engine: AsyncEngine = create_async_engine(
     pool_pre_ping=True,
     pool_size=5,
     max_overflow=10,
+    connect_args={
+        "ssl": "require",  # SSL configuration for asyncpg with Neon
+    },
 )
 
 
